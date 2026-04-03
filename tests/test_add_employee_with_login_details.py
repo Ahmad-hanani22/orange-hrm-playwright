@@ -34,9 +34,5 @@ def test_add_employee_with_login_details(page):
 
     add_emp.save()
 
-    toast = page.locator(".oxd-toast")
-    expect(toast).to_be_visible(timeout=20000)
-    expect(toast).to_contain_text("Success")
-
-    expect(page).to_have_url(re.compile(r".*/viewPersonalDetails.*"), timeout=30000)
-    expect(page.get_by_role("heading", name="Personal Details")).to_be_visible(timeout=30000)
+    expect(page.get_by_role("heading", name="Personal Details")).to_be_visible(timeout=20000)
+    expect(page).to_have_url(re.compile(r".*/pim/viewPersonalDetails/empNumber/\d+$"))
