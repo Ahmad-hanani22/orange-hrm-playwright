@@ -9,9 +9,7 @@ class LoginPage:
         self.login_button = page.get_by_role("button", name="Login")
 
     def open(self):
-        self.page.goto(
-            "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
-        )
+        self.page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 
     def login(self, user: str, pwd: str):
         self.username.fill(user)

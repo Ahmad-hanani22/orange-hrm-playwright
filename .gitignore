@@ -1,5 +1,6 @@
-.idea/
-report.html
 __pycache__/
+.pytest_cache/
+.venv/
+test-results/
+report.html
 *.pyc
-.playwright/
