@@ -1,10 +1,12 @@
 import re
 import time
+
 from playwright.sync_api import expect
-from pages.login_page import LoginPage
-from pages.dashboard_page import DashboardPage
-from pages.pim_page import PIMPage
+
 from pages.add_employee_page import AddEmployeePage
+from pages.dashboard_page import DashboardPage
+from pages.login_page import LoginPage
+from pages.pim_page import PIMPage
 
 
 def test_add_employee_with_login_details(page):

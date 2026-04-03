@@ -1,10 +1,21 @@
 [project]
 name = "orange-hrm-playwright"
 version = "0.1.0"
-description = "Add your description here"
+description = "OrangeHRM test automation project using Playwright and Pytest"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "allure-pytest>=2.15.3",
     "playwright>=1.58.0",
+    "pre-commit>=4.5.1",
+    "pytest-html>=4.2.0",
     "pytest-playwright>=0.7.2",
+    "ruff>=0.15.9",
 ]
+
+[tool.ruff]
+line-length = 120
+fix = true
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "PT"]

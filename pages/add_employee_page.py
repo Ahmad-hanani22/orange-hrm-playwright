@@ -11,19 +11,12 @@ class AddEmployeePage:
         self.middle_name = page.get_by_placeholder("Middle Name")
         self.last_name = page.get_by_placeholder("Last Name")
 
-        self.employee_id = page.locator(
-            'label:has-text("Employee Id") >> xpath=../following-sibling::div//input'
-        )
+        self.employee_id = page.locator("div.oxd-form-row input").nth(3)
 
-        self.create_login_toggle = page.locator(
-            'p:has-text("Create Login Details") >> xpath=..//span[contains(@class,"oxd-switch-input")]'
-        )
-
+        self.create_login_toggle = page.locator("span.oxd-switch-input")
         self.password_fields = page.locator('input[type="password"]')
 
-        self.username = page.locator(
-            'label:has-text("Username") >> xpath=../following-sibling::div//input'
-        )
+        self.username = page.locator("input.oxd-input.oxd-input--active").nth(4)
 
         self.save_button = page.get_by_role("button", name="Save")
 
@@ -42,14 +35,11 @@ class AddEmployeePage:
     def enable_login_details(self):
         expect(self.create_login_toggle).to_be_visible(timeout=15000)
         self.create_login_toggle.click()
-
         expect(self.password_fields.first).to_be_visible(timeout=15000)
 
     def fill_login_details(self, username: str, password: str):
         self.username.fill(username)
-
         self.password_fields.nth(0).fill(password)
-
         self.password_fields.nth(1).fill(password)
 
     def save(self):
